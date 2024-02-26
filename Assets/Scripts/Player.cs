@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        playerJump();
     }
 
     private void MovePlayer()
@@ -32,7 +33,9 @@ public class Player : MonoBehaviour
 
         moveDirection = orientation.forward * vertical + orientation.right * horizontal;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * Time.deltaTime * 10f, ForceMode.Force);
         transform.Rotate(transform.up, 10 * horizontal);
     }
+
+    private void playerJump() { }
 }
