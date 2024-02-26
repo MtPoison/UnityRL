@@ -1,22 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void Awake()
+    [Header("Movement")]
+    public float moveSpeed;
+
+    public Transform orientation;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    private void Start()
     {
-        Debug.Log("Tests");
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        moveDirection = orientation.forward * vertical + orientation.right * horizontal;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        transform.Rotate(transform.up, 10 * horizontal);
     }
 }
