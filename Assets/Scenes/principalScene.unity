@@ -885,6 +885,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7548008609859312281, guid: 7310af078acac284482f01efa5f08823,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7548008609859312281, guid: 7310af078acac284482f01efa5f08823,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: -2662309497492567329, guid: 7310af078acac284482f01efa5f08823,
         type: 3}
       propertyPath: m_Convex
