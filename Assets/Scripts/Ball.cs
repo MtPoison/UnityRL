@@ -4,25 +4,41 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
+    LineRenderer trail;
     public float forceMultiplier = 10f;
     public float upwardForce = 5f;
     private Vector3 initialposition;
 
     private Rigidbody rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         initialposition = transform.position;
+
+        trail = GetComponentInChildren<LineRenderer>();
+        trail.enabled = false;
     }
 
-    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            trail.enabled = true;
+            trail.startWidth = rb.velocity.magnitude / 10f;
+            trail.endWidth = trail.startWidth;
+        }
+        else
+        {
+            trail.enabled = false;
+        }
+    }
+
+
     public void ResetBall()
     {
         transform.position = initialposition;
         rb.velocity = Vector3.zero;
-        
+        trail.enabled = false;
     }
-
-
 }

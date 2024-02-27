@@ -35,17 +35,18 @@ public class Player : MonoBehaviour
             cam.fieldOfView = 90.0f;
             trail.enabled = true;
         }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            PlayerJump();
-        }
         else
         {
             moveSpeed = 15.0f;
             cam.fieldOfView = 60.0f;
             trail.enabled = false;
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            PlayerJump();
+        }
+
     }
 
     private void FixedUpdate()
