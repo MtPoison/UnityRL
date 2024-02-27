@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
     Camera cam;
+    SliderManager sliderManager;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
         trail = GetComponentInChildren<LineRenderer>();
         trail.enabled = false;
+        sliderManager = GetComponentInChildren<SliderManager>();
     }
 
     private void Update()
@@ -34,6 +37,13 @@ public class Player : MonoBehaviour
             moveSpeed = 50.0f;
             cam.fieldOfView = 90.0f;
             trail.enabled = true;
+
+            if (sliderManager != null)
+            {
+                sliderManager.GetSlidersValue("Stamina");
+                sliderManager.SetSlidersValue("Stamina", 0.5f);
+            }
+            
         }
 
         if (Input.GetButtonDown("Jump"))
