@@ -64,4 +64,6 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector3(0, speedJump * Time.deltaTime, 0);
         transform.up = rb.velocity;
     }
+
+    private void playerJump() { }
 }
