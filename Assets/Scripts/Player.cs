@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
+    LineRenderer trail;
 
     Rigidbody rb;
     Camera cam;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
+        trail = GetComponentInChildren<LineRenderer>();
+        trail.enabled = false;
     }
 
     private void Update()
@@ -28,13 +31,15 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 15.0f;
+            moveSpeed = 50.0f;
             cam.fieldOfView = 90.0f;
+            trail.enabled = true;
         }
         else
         {
-            moveSpeed = 70.0f;
+            moveSpeed = 15.0f;
             cam.fieldOfView = 60.0f;
+            trail.enabled = false;
         }
     }
 
