@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float speedJump;
+    [SerializeField, Range(0, 100)] private float intensityJump;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private string verticalInputAxis;
@@ -35,22 +35,19 @@ public class Player : MonoBehaviour
             cam.fieldOfView = 90.0f;
             trail.enabled = true;
         }
-        else
+
+        if (Input.GetButtonDown("Jump"))
         {
             moveSpeed = 15.0f;
             cam.fieldOfView = 60.0f;
             trail.enabled = false;
+            PlayerJump();
         }
     }
 
     private void FixedUpdate()
     {
         MovePlayers();
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
     }
 
     private void GetAxisRawGlobal()
@@ -66,11 +63,8 @@ public class Player : MonoBehaviour
         transform.Rotate(transform.up, RotateSpeed * horizontalPlayerGlobal);
     }
 
-    private void Jump()
+    private void PlayerJump()
     {
-        rb.velocity = new Vector3(0, speedJump * Time.deltaTime, 0);
-        rb.velocity *= 5;
+        rb.AddForce(intensityJump * Time.deltaTime * 1000 * Vector3.up);
     }
-
-    private void playerJump() { }
 }
