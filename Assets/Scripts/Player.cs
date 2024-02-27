@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
-    [SerializeField, Range(0, 200)] private float intensityJump;
+    [SerializeField, Range(0, 100)] private float intensityJump;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private string verticalInputAxis;
@@ -43,13 +43,6 @@ public class Player : MonoBehaviour
             trail.enabled = false;
             PlayerJump();
         }
-/*        if (rb.velocity.y < 1)
-        {
-            Debug.Log("t'es au sol");
-        }else
-        {
-            Debug.Log("t'es en l'air");
-        }*/
     }
 
     private void FixedUpdate()
