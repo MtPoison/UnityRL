@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float speedJump;
+    [SerializeField, Range(0, 200)] private float intensityJump;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private string verticalInputAxis;
@@ -26,22 +26,29 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 15.0f;
+            moveSpeed = 50.0f;
         }
         else
         {
-            moveSpeed = 70.0f;
+            moveSpeed = 15.0f;
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            PlayerJump();
+        }
+/*        if (rb.velocity.y < 1)
+        {
+            Debug.Log("t'es au sol");
+        }else
+        {
+            Debug.Log("t'es en l'air");
+        }*/
     }
 
     private void FixedUpdate()
     {
         MovePlayers();
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
     }
 
     private void GetAxisRawGlobal()
@@ -57,11 +64,8 @@ public class Player : MonoBehaviour
         transform.Rotate(transform.up, RotateSpeed * horizontalPlayerGlobal);
     }
 
-    private void Jump()
+    private void PlayerJump()
     {
-        rb.velocity = new Vector3(0, speedJump * Time.deltaTime, 0);
-        rb.velocity *= 5;
+        rb.AddForce(intensityJump * Time.deltaTime * 1000 * Vector3.up);
     }
-
-    private void playerJump() { }
 }

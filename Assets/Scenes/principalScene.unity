@@ -221,7 +221,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 4.58
+  m_Intensity: 0.72
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -737,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -747,7 +747,7 @@ PrefabInstance:
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: RotateSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -763,6 +763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: airMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: intensityJump
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -798,6 +803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: PlayerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -973,7 +983,12 @@ PrefabInstance:
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: speedJump
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -983,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: RotateSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -999,6 +1014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: airMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: intensityJump
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -1039,6 +1059,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: PlayerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
