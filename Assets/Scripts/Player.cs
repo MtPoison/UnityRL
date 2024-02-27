@@ -12,12 +12,17 @@ public class Player : MonoBehaviour
 
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
+    LineRenderer trail;
 
     Rigidbody rb;
+    Camera cam;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<Camera>();
+        trail = GetComponentInChildren<LineRenderer>();
+        trail.enabled = false;
     }
 
     private void Update()
@@ -27,14 +32,15 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 50.0f;
-        }
-        else
-        {
-            moveSpeed = 15.0f;
+            cam.fieldOfView = 90.0f;
+            trail.enabled = true;
         }
 
         if (Input.GetButtonDown("Jump"))
         {
+            moveSpeed = 15.0f;
+            cam.fieldOfView = 60.0f;
+            trail.enabled = false;
             PlayerJump();
         }
 /*        if (rb.velocity.y < 1)
