@@ -14,10 +14,12 @@ public class Player : MonoBehaviour
     private float verticalPlayerGlobal;
 
     Rigidbody rb;
+    Camera cam;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<Camera>();
     }
 
     private void Update()
@@ -27,10 +29,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 15.0f;
+            cam.fieldOfView = 90.0f;
         }
         else
         {
             moveSpeed = 70.0f;
+            cam.fieldOfView = 60.0f;
         }
     }
 
