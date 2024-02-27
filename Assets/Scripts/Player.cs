@@ -7,66 +7,60 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float speedJump;
     [SerializeField] private float RotateSpeed;
+    [SerializeField] private string horizontalInputAxis;
+    [SerializeField] private string verticalInputAxis;
 
-    private float horizontal;
-    private float vertical;
-
-    public Transform orientation;
-
-    Vector3 moveDirection;
+    private float horizontalPlayerGlobal;
+    private float verticalPlayerGlobal;
 
     Rigidbody rb;
-    Camera cam;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cam = GetComponentInChildren<Camera>();
     }
 
     private void Update()
     {
+        GetAxisRawGlobal();
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 15.0f;
-            cam.fieldOfView = 90.0f;
         }
         else
         {
-            moveSpeed = 10.0f;
-            cam.fieldOfView = 60.0f;
+            moveSpeed = 70.0f;
         }
     }
 
     private void FixedUpdate()
     {
-        GetAxisRaw();
-        MovePlayer();
+        MovePlayers();
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
     }
 
-    private void GetAxisRaw()
+    private void GetAxisRawGlobal()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontalPlayerGlobal = Input.GetAxisRaw(horizontalInputAxis);
+        verticalPlayerGlobal = Input.GetAxisRaw(verticalInputAxis);
     }
 
-    private void MovePlayer()
+    private void MovePlayers()
     {
-        moveDirection = orientation.forward * vertical + orientation.right * horizontal;
+        rb.AddForce(transform.forward * moveSpeed * verticalPlayerGlobal);
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        transform.Rotate(transform.up, RotateSpeed * horizontal);
+        transform.Rotate(transform.up, RotateSpeed * horizontalPlayerGlobal);
     }
 
     private void Jump()
     {
         rb.velocity = new Vector3(0, speedJump * Time.deltaTime, 0);
-        transform.up = rb.velocity;
+        rb.velocity *= 5;
     }
 
     private void playerJump() { }
