@@ -38,10 +38,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            PlayerJump();
+        }
+        else
+        {
             moveSpeed = 15.0f;
             cam.fieldOfView = 60.0f;
             trail.enabled = false;
-            PlayerJump();
         }
     }
 
