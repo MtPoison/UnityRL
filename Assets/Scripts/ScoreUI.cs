@@ -18,6 +18,6 @@ public class ScoreUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = $"{gameManager.scorePlayerA} -- {gameManager.scorePlayerB}";
+        scoreText.text = $"{gameManager.scorePlayerA}  {gameManager.scorePlayerB}";
     }
 }
