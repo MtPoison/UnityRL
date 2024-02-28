@@ -18,8 +18,23 @@ public class Ball : MonoBehaviour
 
         trail = GetComponentInChildren<LineRenderer>();
         trail.enabled = false;
+
     }
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        trail = GetComponentInChildren<LineRenderer>();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        rb.velocity = Vector3.zero;
+        trail.enabled = false;
+    }
     void FixedUpdate()
     {
         if (rb.velocity.magnitude > 0.1f)
