@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     [SerializeField] public string capacityInputAxis;
     [SerializeField] public int additionalForce;
 
+    private Transform player;
+    private Transform ball;
+    public float rotationSpeed = 5f;
+    private bool focusBall = false;
 
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
@@ -33,20 +37,37 @@ public class Player : MonoBehaviour
     LineRenderer trail;
     Rigidbody rb;
     Camera cam;
-    SliderManager sliderManager;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
         trail = GetComponentInChildren<LineRenderer>();
-        sliderManager = GetComponentInChildren<SliderManager>();
         trail.enabled = false;
+
+        player = GetComponent<Player>().transform;
+        ball = GameObject.FindWithTag("Ball").transform;
     }
 
     private void Update()
     {
         GetAxisRawGlobal();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            focusBall = !focusBall;
+        }
+
+        if (focusBall)
+        {
+            Vector3 direction = ball.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, player.rotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
     private void FixedUpdate()
@@ -57,15 +78,6 @@ public class Player : MonoBehaviour
         {
             PlayerJump();
         }
-
-        /*        if (sliderManager != null)
-                {
-                    if (Input.GetAxisRaw(jetpackInputAxis) != 0 && sliderManager.GetSlidersValue("JetpackJauge") > 0.0f)
-                    {
-                        PlayerJetpack();
-                    }   
-                }*/
-
     }
 
     public void SprintOn()
@@ -85,7 +97,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         canJump = true;
-        if(capacityPlayerGlobal !=0)
+        if(capacityPlayerGlobal != 0)
         {
             if (collision.collider.CompareTag("Ball"))
             {
