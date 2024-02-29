@@ -9,7 +9,6 @@ public class Ball : MonoBehaviour
     [SerializeField] private float upwardForce = 5f;
     [SerializeField] int scale;
     private Vector3 initialposition;
-   
 
     private Rigidbody rb;
 

@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SliderManager : MonoBehaviour
 {
     [SerializeField] public string sprintInputAxis;
     [SerializeField] public string jetpackInputAxis;
 
-    public Slider sprintStaminaSlider;
-    public Slider jetpackStaminaSlider;
-
-    /*public List<Slider> sliders = new List<Slider>();*/
+    public Slider StaminaSlider;
 
     Player playerComponent;
 
-    public float staminaRemoveValue = 0.1f;
+    public float staminaRemoveJetpackValue = 0.2f;
+    public float staminaRemoveSprintValue = 0.1f;
     public float staminaAddValue = 0.1f;
 
     public bool isRemoveStamina = false;
@@ -25,7 +24,6 @@ public class SliderManager : MonoBehaviour
 
     private void Start()
     {
-        /*SliderInitialization();*/
         Transform parentTransform = transform.parent;
 
         if (parentTransform != null)
@@ -45,12 +43,7 @@ public class SliderManager : MonoBehaviour
         }
     }
 
-/*    private void SliderInitialization()
-    {
-        sliders.AddRange(FindObjectsOfType<Slider>());
-    }*/
-
-    private IEnumerator SmoothChangeSliderValue(Slider slider, float targetValue)
+/*    private IEnumerator SmoothChangeSliderValue(Slider slider, float targetValue)
     {
         float startValue = slider.value;
         float sleepTime = 0.0f;
@@ -64,7 +57,7 @@ public class SliderManager : MonoBehaviour
         }
 
         slider.value = targetValue;
-    }
+    }*/
 
     /*public void SetSlidersValue(string tag, float targetValue)
     {
@@ -91,12 +84,12 @@ public class SliderManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxisRaw(sprintInputAxis) != 0 && sprintStaminaSlider.value > 0.0f)
+        if (Input.GetAxisRaw(sprintInputAxis) != 0 && StaminaSlider.value > 0.0f)
         {
             playerComponent.SprintOn();
             if (!isRemoveStamina)
             {
-                StartCoroutine(RemoveStamina(sprintStaminaSlider));
+                StartCoroutine(RemoveStamina(StaminaSlider));
             }
         }
         else
@@ -105,12 +98,12 @@ public class SliderManager : MonoBehaviour
             isRemoveStamina = false;
         }
 
-        if (Input.GetAxisRaw(jetpackInputAxis) != 0 && jetpackStaminaSlider.value > 0.0f)
+        if (Input.GetAxisRaw(jetpackInputAxis) != 0 && StaminaSlider.value > 0.0f)
         {
             playerComponent.PlayerJetpack();
             if (!isRemoveStaminaJetpack)
             {
-                StartCoroutine(RemoveStaminaJetpack(jetpackStaminaSlider));
+                StartCoroutine(RemoveStaminaJetpack(StaminaSlider));
             }
         }
         else
@@ -122,10 +115,10 @@ public class SliderManager : MonoBehaviour
     private IEnumerator RemoveStamina(Slider staminaSlider)
     {
         isRemoveStamina = true;
-        while (Input.GetAxisRaw(sprintInputAxis) != 0)
+        while (Input.GetAxisRaw(sprintInputAxis) != 0 && StaminaSlider.value > 0.0f)
         {
             float currentStamina = staminaSlider.value;
-            currentStamina -= staminaRemoveValue * Time.deltaTime;
+            currentStamina -= staminaRemoveSprintValue * Time.deltaTime;
             staminaSlider.value = Mathf.Clamp01(currentStamina);
             yield return null;
         }
@@ -135,30 +128,46 @@ public class SliderManager : MonoBehaviour
     private IEnumerator RemoveStaminaJetpack(Slider staminaSlider)
     {
         isRemoveStaminaJetpack = true;
-        while (Input.GetAxisRaw(jetpackInputAxis) != 0)
+        while (Input.GetAxisRaw(jetpackInputAxis) != 0 && StaminaSlider.value > 0.0f)
         {
             float currentStamina = staminaSlider.value;
-            currentStamina -= staminaRemoveValue * Time.deltaTime;
+            currentStamina -= staminaRemoveJetpackValue * Time.deltaTime;
             staminaSlider.value = Mathf.Clamp01(currentStamina);
             yield return null;
         }
         isRemoveStaminaJetpack = false;
     }
 
+    private IEnumerator AddStamina()
+    {
+        yield return new WaitForSeconds(2f);
+        float currentStamina = StaminaSlider.value;
+        while (currentStamina < 1f)
+        {
+            // check si le player sprint ou use le jetpack, si c'est le cas break la coroutine
+            if (Input.GetAxisRaw(sprintInputAxis) != 0 || Input.GetAxisRaw(jetpackInputAxis) != 0)
+            {
+                yield break;
+            }
+
+            // ajoute du stamina au fur et à mesure
+            currentStamina += staminaAddValue * Time.fixedDeltaTime;
+            StaminaSlider.value = Mathf.Clamp01(currentStamina);
+            yield return null;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if (Input.GetAxisRaw(sprintInputAxis) == 0)
+        if (!isRemoveStaminaJetpack && !isRemoveStamina && StaminaSlider.value <= 0f)
         {
-            float currentStamina = sprintStaminaSlider.value;
-            currentStamina += staminaAddValue * Time.fixedDeltaTime;
-            sprintStaminaSlider.value = Mathf.Clamp01(currentStamina);
+            StartCoroutine(AddStamina());
         }
-
-        if (Input.GetAxisRaw(jetpackInputAxis) == 0)
+        else if (Input.GetAxisRaw(sprintInputAxis) == 0 && Input.GetAxisRaw(jetpackInputAxis) == 0 && !isRemoveStamina && StaminaSlider.value > 0f)
         {
-            float currentStamina = jetpackStaminaSlider.value;
+            float currentStamina = StaminaSlider.value;
             currentStamina += staminaAddValue * Time.fixedDeltaTime;
-            jetpackStaminaSlider.value = Mathf.Clamp01(currentStamina);
+            StaminaSlider.value = Mathf.Clamp01(currentStamina);
         }
     }
 }
