@@ -11,18 +11,6 @@ public class GameManager : MonoBehaviour
         PlayerB,
     }
 
-    private static GameManager instance;
-
-    public static GameManager GetInstance()
-    {
-
-        if (instance == null)
-        {
-            instance = FindObjectOfType<GameManager>();
-        }
-        return instance;
-    }
-
     [SerializeField] private Ball ball;
     [SerializeField] private Player playerA;
     [SerializeField] private Player playerB;

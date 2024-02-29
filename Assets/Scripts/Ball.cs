@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     TrailRenderer trail;
-    public float forceMultiplier = 10f;
-    public float upwardForce = 5f;
+    [SerializeField] private float forceMultiplier = 10f;
+    [SerializeField] private float upwardForce = 5f;
     [SerializeField] int scale;
     private Vector3 initialposition;
    

@@ -105,7 +105,6 @@ public class Player : MonoBehaviour
     private void PlayerJump()
     {
         rb.AddForce(intensityJump * Time.deltaTime * 1000 * Vector3.up);
-        rb.drag = -1;
     }
 
     public void PlayerJetpack()

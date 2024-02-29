@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float totalTime = 3f;
+    [SerializeField] private float totalTime;
     private float timeRemaining;
-    public TextMeshProUGUI countdownText;
+    private TextMeshProUGUI countdownText;
 
     void Start()
     {

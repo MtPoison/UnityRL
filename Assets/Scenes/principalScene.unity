@@ -3216,6 +3216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 460554659}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
       propertyPath: jumpForce
       value: 1
       objectReference: {fileID: 0}
@@ -4935,7 +4940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 300
-  countdownText: {fileID: 0}
 --- !u!1 &2034921506
 GameObject:
   m_ObjectHideFlags: 0

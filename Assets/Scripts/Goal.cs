@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
 {
     private Ball ball;
     [SerializeField] private GameManager.PlayerEnum player;
-    ParticleSystem part;
+    private ParticleSystem part;
     private void Start()
     {
         part = GetComponentInChildren<ParticleSystem>();
