@@ -2963,7 +2963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da82a52c3d41f0840bc006c766102402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 20
+  totalTime: 300
   countdownText: {fileID: 0}
 --- !u!1 &2034921506
 GameObject:
@@ -12844,4 +12844,4 @@ SceneRoots:
   - {fileID: 2011988948}
   - {fileID: 707851878}
   - {fileID: 379716334}
-  - {fileID: 1924218750}*
+  - {fileID: 1924218750}

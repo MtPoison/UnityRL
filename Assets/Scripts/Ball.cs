@@ -49,21 +49,6 @@ public class Ball : MonoBehaviour
         hue = 0.0f;
 
     }
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-
-        trail = GetComponentInChildren<TrailRenderer>();
-
-        Init();
-    }
-
-    public void Init()
-    {
-        rb.velocity = Vector3.zero;
-        trail.enabled = false;
-    }
     void FixedUpdate()
     {
         if (rb.velocity.magnitude > 0.1f)
