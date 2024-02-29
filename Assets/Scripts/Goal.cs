@@ -23,8 +23,11 @@ public class Goal : MonoBehaviour
         {
             
             part.Play();
-
-            ball.IsDestroyed();
+            for (float i = 1; i >= 0.2 ; i -= 0.1f)
+            {
+                ball.transform.localScale *= i;
+                yield return new WaitForSeconds(.1f);
+            }
             yield return new WaitForSeconds(2);
             FindObjectOfType<GameManager>().KickOff();
             FindObjectOfType<GameManager>().Goalaso(player);

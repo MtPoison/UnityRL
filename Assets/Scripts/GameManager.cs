@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
         ball.transform.position = ballStart.position;
         playerA.transform.position = playerAStart.position;
         playerB.transform.position = playerBStart.position;
-
+        playerB.transform.rotation  = playerAStart.rotation;
+        playerB.transform.rotation = playerBStart.rotation;
     }
 
     public void Goalaso(PlayerEnum player)
