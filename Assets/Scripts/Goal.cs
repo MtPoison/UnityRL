@@ -16,8 +16,16 @@ public class Goal : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             part.Play();
+<<<<<<< Updated upstream
             other.gameObject.GetComponent<Ball>().ResetBall();
 
+=======
+            for (float i = 1; i >= 0.2 ; i -= 0.1f)
+            {
+                ball.transform.localScale *= i;
+                yield return new WaitForSeconds(.1f);
+            }
+>>>>>>> Stashed changes
             yield return new WaitForSeconds(2);
 
             part.Stop();

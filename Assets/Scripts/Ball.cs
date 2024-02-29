@@ -7,7 +7,9 @@ public class Ball : MonoBehaviour
     LineRenderer trail;
     public float forceMultiplier = 10f;
     public float upwardForce = 5f;
+    [SerializeField] int scale;
     private Vector3 initialposition;
+   
 
     private Rigidbody rb;
 
@@ -16,7 +18,31 @@ public class Ball : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         initialposition = transform.position;
 
+<<<<<<< Updated upstream
         trail = GetComponentInChildren<LineRenderer>();
+=======
+        trail = GetComponentInChildren<TrailRenderer>();
+        trail.enabled = false;
+
+        hue = 0.0f;
+
+    }
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        trail = GetComponentInChildren<TrailRenderer>();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        transform.localScale = new Vector3(scale, scale, scale);
+        rb.velocity = Vector3.zero;
+
+>>>>>>> Stashed changes
         trail.enabled = false;
     }
 
