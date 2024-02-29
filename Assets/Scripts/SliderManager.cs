@@ -93,7 +93,6 @@ public class SliderManager : MonoBehaviour
     {
         if (Input.GetAxisRaw(sprintInputAxis) != 0 && sprintStaminaSlider.value > 0.0f)
         {
-            Debug.Log("sprint");
             playerComponent.SprintOn();
             if (!isRemoveStamina)
             {
@@ -108,7 +107,6 @@ public class SliderManager : MonoBehaviour
 
         if (Input.GetAxisRaw(jetpackInputAxis) != 0 && jetpackStaminaSlider.value > 0.0f)
         {
-            Debug.Log("jetpack" + jetpackStaminaSlider.value);
             playerComponent.PlayerJetpack();
             if (!isRemoveStaminaJetpack)
             {

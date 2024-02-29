@@ -7,19 +7,20 @@ public class GameManager : MonoBehaviour
 {
     public enum PlayerEnum
     {
-        PlayerA, 
+        PlayerA,
         PlayerB,
     }
 
     private static GameManager instance;
 
-    public static GameManager GetInstance() { 
-        
-        if(instance == null)
+    public static GameManager GetInstance()
+    {
+
+        if (instance == null)
         {
-            instance =  FindObjectOfType<GameManager>();
+            instance = FindObjectOfType<GameManager>();
         }
-        return instance; 
+        return instance;
     }
 
     [SerializeField] private Ball ball;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void KickOff()
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         ball.transform.position = ballStart.position;
         playerA.transform.position = playerAStart.position;
         playerB.transform.position = playerBStart.position;
-        playerB.transform.rotation  = playerAStart.rotation;
+        playerB.transform.rotation = playerAStart.rotation;
         playerB.transform.rotation = playerBStart.rotation;
     }
 
