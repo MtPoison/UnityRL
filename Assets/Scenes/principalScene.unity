@@ -1709,6 +1709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
+      propertyPath: additionalForce
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
       propertyPath: sprintInputAxis
       value: SprintPlayerB
       objectReference: {fileID: 0}
@@ -1721,6 +1726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jetpackInputAxis
       value: JetpackPlayerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: capacityInputAxis
+      value: CapacityPlayerB
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -3276,6 +3286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
+      propertyPath: additionalForce
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
       propertyPath: sprintInputAxis
       value: SprintPlayerA
       objectReference: {fileID: 0}
@@ -3288,6 +3303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jetpackInputAxis
       value: JetpackPlayerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
+        type: 3}
+      propertyPath: capacityInputAxis
+      value: CapacityPlayerA
       objectReference: {fileID: 0}
     - target: {fileID: 2901417352375393408, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}

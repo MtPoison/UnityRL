@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -17,11 +18,15 @@ public class Player : MonoBehaviour
     [SerializeField] private string verticalInputAxis;
     [SerializeField] public string sprintInputAxis;
     [SerializeField] public string jetpackInputAxis;
+    [SerializeField] public string capacityInputAxis;
+    [SerializeField] public int additionalForce;
+
 
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
     public float sprintPlayerGlobal;
     public float jetpackPlayerGlobal;
+    public float capacityPlayerGlobal;
 
     private bool canJump;
     
@@ -53,13 +58,13 @@ public class Player : MonoBehaviour
             PlayerJump();
         }
 
-/*        if (sliderManager != null)
-        {
-            if (Input.GetAxisRaw(jetpackInputAxis) != 0 && sliderManager.GetSlidersValue("JetpackJauge") > 0.0f)
-            {
-                PlayerJetpack();
-            }   
-        }*/
+        /*        if (sliderManager != null)
+                {
+                    if (Input.GetAxisRaw(jetpackInputAxis) != 0 && sliderManager.GetSlidersValue("JetpackJauge") > 0.0f)
+                    {
+                        PlayerJetpack();
+                    }   
+                }*/
 
     }
 
@@ -80,6 +85,15 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         canJump = true;
+        if(capacityPlayerGlobal !=0)
+        {
+            if (collision.collider.CompareTag("Ball"))
+            {
+                Vector3 vec = (collision.transform.position - transform.position).normalized;
+                collision.rigidbody.AddForce(vec * additionalForce);
+            }
+        }
+        
     }
 
     private void OnCollisionExit(Collision collision)
@@ -93,6 +107,7 @@ public class Player : MonoBehaviour
         verticalPlayerGlobal = Input.GetAxisRaw(verticalInputAxis);
         sprintPlayerGlobal = Input.GetAxisRaw(sprintInputAxis);
         jetpackPlayerGlobal = Input.GetAxisRaw(jetpackInputAxis);
+        capacityPlayerGlobal = Input.GetAxisRaw(capacityInputAxis);
     }
 
     private void MovePlayers()

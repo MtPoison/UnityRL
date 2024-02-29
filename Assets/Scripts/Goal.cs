@@ -22,7 +22,9 @@ public class Goal : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             
+            
             part.Play();
+            ball.GetComponent<Rigidbody>().isKinematic = true;
             for (float i = 1; i >= 0.2 ; i -= 0.1f)
             {
                 ball.transform.localScale *= i;
@@ -31,6 +33,7 @@ public class Goal : MonoBehaviour
             yield return new WaitForSeconds(2);
             FindObjectOfType<GameManager>().KickOff();
             FindObjectOfType<GameManager>().Goalaso(player);
+            ball.GetComponent<Rigidbody>().isKinematic = false;
             ball.Init();
             part.Stop();
         }
