@@ -50,10 +50,8 @@ public class GameManager : MonoBehaviour
         ball.transform.position = ballStart.position;
         playerA.transform.position = playerAStart.position;
         playerB.transform.position = playerBStart.position;
-
         playerB.transform.rotation  = playerAStart.rotation;
         playerB.transform.rotation = playerBStart.rotation;
-
     }
 
     public void Goalaso(PlayerEnum player)
@@ -66,18 +64,6 @@ public class GameManager : MonoBehaviour
             case PlayerEnum.PlayerB:
                 scorePlayerB++;
                 break;
-        }
-    }
-
-    public void EndGame()
-    {
-        if(scorePlayerA > scorePlayerB)
-        {
-            Debug.Log($"Player A a gagné avec {scorePlayerA} but");
-        }
-        else
-        {
-            Debug.Log($"Player A a gagné avec {scorePlayerB} but");
         }
     }
 }
