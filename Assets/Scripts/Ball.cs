@@ -4,34 +4,65 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    LineRenderer trail;
+    TrailRenderer trail;
     public float forceMultiplier = 10f;
     public float upwardForce = 5f;
     private Vector3 initialposition;
 
     private Rigidbody rb;
 
+    public float speed = 1.0f;
+    private float hue;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         initialposition = transform.position;
 
-        trail = GetComponentInChildren<LineRenderer>();
+        trail = GetComponentInChildren<TrailRenderer>();
         trail.enabled = false;
+
+        hue = 0.0f;
+
     }
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        trail = GetComponentInChildren<TrailRenderer>();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        rb.velocity = Vector3.zero;
+        trail.enabled = false;
+    }
     void FixedUpdate()
     {
         if (rb.velocity.magnitude > 0.1f)
         {
             trail.enabled = true;
-            trail.startWidth = rb.velocity.magnitude / 10f;
+            trail.startWidth = rb.velocity.magnitude / 3.0f;
             trail.endWidth = trail.startWidth;
         }
         else
         {
             trail.enabled = false;
         }
+    }
+
+    private void Update()
+    {
+        hue += Time.deltaTime * speed;
+        hue = Mathf.Repeat(hue, 1.0f);
+
+        Color color = Color.HSVToRGB(hue, 1.0f, 1.0f);
+
+        trail.startColor = color;
+        trail.endColor = color;
     }
 
 
