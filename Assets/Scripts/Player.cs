@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     private Transform player;
     private Transform ball;
+
     public float rotationSpeed = 5f;
     private bool focusBall = false;
 
