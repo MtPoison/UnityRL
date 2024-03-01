@@ -1,9 +1,5 @@
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
 {
