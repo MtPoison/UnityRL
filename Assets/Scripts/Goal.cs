@@ -16,26 +16,32 @@ public class Goal : MonoBehaviour
         part.Stop();
         ball = FindObjectOfType<Ball>();
     }
-    private IEnumerator OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         if (other.CompareTag("Ball"))
         {
-            
-            
-            part.Play();
-            ball.GetComponent<Rigidbody>().isKinematic = true;
-            for (float i = 1; i >= 0.2 ; i -= 0.1f)
-            {
-                ball.transform.localScale *= i;
-                yield return new WaitForSeconds(.1f);
-            }
-            yield return new WaitForSeconds(2);
-            FindObjectOfType<GameManager>().KickOff();
-            FindObjectOfType<GameManager>().Goalaso(player);
-            ball.GetComponent<Rigidbody>().isKinematic = false;
-            ball.Init();
-            part.Stop();
+
+            StartCoroutine(checkGoal());
         }
+    }
+
+    private IEnumerator checkGoal()
+    {
+        Debug.Log("vu");
+        part.Play();
+        for (float i = 1; i >= 0.2; i -= 0.1f)
+        {
+            ball.transform.localScale *= i;
+            yield return new WaitForSeconds(.1f);
+        }
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<GameManager>().KickOff();
+        Debug.Log("okk");
+        ball.GetComponent<Rigidbody>().isKinematic = true;
+        FindObjectOfType<GameManager>().Goalaso(player);
+        ball.GetComponent<Rigidbody>().isKinematic = false;
+        ball.Init();
+        part.Stop();
     }
 }
