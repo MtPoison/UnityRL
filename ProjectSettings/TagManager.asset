@@ -10,14 +10,17 @@ TagManager:
   - Stamina
   - StaminaJetpack
   - Arrow
+  - Red
+  - Green
+  - Blue
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerA
   - Water
   - UI
-  - 
+  - PlayerB
   - 
   - 
   - 

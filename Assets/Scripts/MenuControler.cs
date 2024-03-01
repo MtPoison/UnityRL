@@ -19,7 +19,7 @@ public class MenuControler : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         Debug.Log("okk");
     }
 
