@@ -8,16 +8,6 @@ public class ArrowLook : MonoBehaviour
     private Transform m_Target;
     public Transform LookAtTarget { get { return m_Target; } }
 
-    [SerializeField]
-    public Transform m_Spinner;
-    public Transform Spinner { get { return m_Spinner; } }
-
-    [SerializeField]
-    private Transform m_Scaler;
-    public Transform Scaler { get { return m_Scaler; } }
-
-    public float speed;
-
     // Start is called before the first frame update
     void Start()
     {
