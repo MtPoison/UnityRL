@@ -43,7 +43,11 @@ public class Player : MonoBehaviour
         trail.enabled = false;
 
         player = GetComponent<Player>().transform;
-        ball = GameObject.FindWithTag("Ball").transform;
+        if (ball != null)
+        {
+            ball = GameObject.FindWithTag("Ball").transform;
+        }
+        
     }
 
     private void Update()
