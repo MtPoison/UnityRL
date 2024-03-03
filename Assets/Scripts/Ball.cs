@@ -78,7 +78,7 @@ public class Ball : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Vérifie si la collision est avec la balle
-        if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (rb.velocity.x < 5)
             {

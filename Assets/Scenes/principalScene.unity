@@ -210,8 +210,6 @@ MonoBehaviour:
   staminaRemoveJetpackValue: 0.2
   staminaRemoveSprintValue: 0.1
   staminaAddValue: 0.1
-  isRemoveStamina: 0
-  isRemoveStaminaJetpack: 0
 --- !u!224 &20208175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2100,7 +2098,7 @@ PrefabInstance:
     - target: {fileID: 7229048673948345685, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerA
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -2979,8 +2977,6 @@ MonoBehaviour:
   staminaRemoveJetpackValue: 0.2
   staminaRemoveSprintValue: 0.1
   staminaAddValue: 0.1
-  isRemoveStamina: 0
-  isRemoveStaminaJetpack: 0
 --- !u!224 &1169743311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4076,7 +4072,7 @@ PrefabInstance:
     - target: {fileID: 7229048673948345685, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerA
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7442830052369674291, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
