@@ -12,28 +12,26 @@ public class Player : MonoBehaviour
     [SerializeField] private string jumpInputAxis;
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private string verticalInputAxis;
-    [SerializeField] public string sprintInputAxis;
-    [SerializeField] public string jetpackInputAxis;
-    [SerializeField] public string capacityInputAxis;
-    [SerializeField] public int additionalForce;
+    [SerializeField] private string sprintInputAxis;
+    [SerializeField] private string jetpackInputAxis;
+    [SerializeField] private string capacityInputAxis;
+    [SerializeField] private int additionalForce;
 
     private Transform player;
     private Transform ball;
 
-    public float rotationSpeed = 5f;
+    private float rotationSpeed = 5f;
     private bool focusBall = false;
 
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
-    public float sprintPlayerGlobal;
-    public float jetpackPlayerGlobal;
-    public float capacityPlayerGlobal;
+    private float capacityPlayerGlobal;
 
     private bool canJump;
-    
-    LineRenderer trail;
-    Rigidbody rb;
-    Camera cam;
+
+    private LineRenderer trail;
+    private Rigidbody rb;
+    private Camera cam;
 
     private void Start()
     {
@@ -118,8 +116,6 @@ public class Player : MonoBehaviour
     {
         horizontalPlayerGlobal = Input.GetAxisRaw(horizontalInputAxis);
         verticalPlayerGlobal = Input.GetAxisRaw(verticalInputAxis);
-        sprintPlayerGlobal = Input.GetAxisRaw(sprintInputAxis);
-        jetpackPlayerGlobal = Input.GetAxisRaw(jetpackInputAxis);
         capacityPlayerGlobal = Input.GetAxisRaw(capacityInputAxis);
     }
 

@@ -6,19 +6,18 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class SliderManager : MonoBehaviour
 {
-    [SerializeField] public string sprintInputAxis;
-    [SerializeField] public string jetpackInputAxis;
+    [SerializeField] private string sprintInputAxis;
+    [SerializeField] private string jetpackInputAxis;
 
-    public Slider StaminaSlider;
+    [SerializeField] private Slider StaminaSlider;
+    private Player playerComponent;
 
-    Player playerComponent;
+    [SerializeField] private float staminaRemoveJetpackValue = 0.2f;
+    [SerializeField] private float staminaRemoveSprintValue = 0.1f;
+    [SerializeField] private float staminaAddValue = 0.1f;
 
-    public float staminaRemoveJetpackValue = 0.2f;
-    public float staminaRemoveSprintValue = 0.1f;
-    public float staminaAddValue = 0.1f;
-
-    public bool isRemoveStamina = false;
-    public bool isRemoveStaminaJetpack = false;
+    private bool isRemoveStamina = false;
+    private bool isRemoveStaminaJetpack = false;
 
     
 

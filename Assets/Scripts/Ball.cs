@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    TrailRenderer trail;
+    private TrailRenderer trail;
+    private AudioSource tirBall;
     [SerializeField] private float forceMultiplier = 10f;
     [SerializeField] private float upwardForce = 5f;
     [SerializeField] int scale;
@@ -26,6 +27,7 @@ public class Ball : MonoBehaviour
 
         hue = 0.0f;
 
+        tirBall = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -71,6 +73,23 @@ public class Ball : MonoBehaviour
 
         trail.startColor = color;
         trail.endColor = color;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Vérifie si la collision est avec la balle
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (rb.velocity.x < 5)
+            {
+                tirBall.volume = 0.2f;
+            }
+            else if (rb.velocity.x >= 5)
+            {
+                tirBall.volume = 0.6f;
+            }
+            tirBall.Play();
+        }
     }
 
 
