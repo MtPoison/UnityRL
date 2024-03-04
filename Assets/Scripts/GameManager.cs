@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
         playerB.transform.rotation = playerBStart.rotation;
     }
 
+    public void AntiUnderMapBall()
+    {
+        ball.transform.position = ballStart.position;
+    }
+
     public void Goalaso(PlayerEnum player)
     {
         switch (player)
