@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     public void SprintOn()
     {
         moveSpeed = 50.0f;
-        cam.fieldOfView = 90.0f;
+        cam.fieldOfView = Mathf.Lerp(60 , 120, rb.velocity.magnitude / 50);
         trail.enabled = false;
     }
 
