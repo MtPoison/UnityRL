@@ -2981,8 +2981,6 @@ MonoBehaviour:
   staminaRemoveJetpackValue: 0.2
   staminaRemoveSprintValue: 0.1
   staminaAddValue: 0.1
-  isRemoveStamina: 0
-  isRemoveStaminaJetpack: 0
 --- !u!114 &691446864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3216,8 +3214,6 @@ MonoBehaviour:
   staminaRemoveJetpackValue: 0.2
   staminaRemoveSprintValue: 0.1
   staminaAddValue: 0.1
-  isRemoveStamina: 0
-  isRemoveStaminaJetpack: 0
 --- !u!114 &705373217
 MonoBehaviour:
   m_ObjectHideFlags: 0

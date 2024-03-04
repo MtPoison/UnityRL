@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quentin.unity
     guid: 68376f5420f2f154eaac4f57e9b29da9
+  - enabled: 1
+    path: Assets/Scenes/Training.unity
+    guid: ec10b7af9771758409a396b11f57a8e6
   m_configObjects: {}
