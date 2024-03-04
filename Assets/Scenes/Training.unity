@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831575}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78747930}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,9 +1535,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 507018884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55, y: -52}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -55, y: -46}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117813283
@@ -2334,7 +2334,7 @@ PrefabInstance:
     - target: {fileID: 3442081718480805380, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 32
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3442081718480805380, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -2859,7 +2859,7 @@ GameObject:
   - component: {fileID: 586811402}
   - component: {fileID: 586811404}
   - component: {fileID: 586811403}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2934,7 +2934,7 @@ GameObject:
   - component: {fileID: 691446862}
   - component: {fileID: 691446864}
   - component: {fileID: 691446863}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: StaminaJaugeA
   m_TagString: Stamina
   m_Icon: {fileID: 0}
@@ -3167,7 +3167,7 @@ GameObject:
   - component: {fileID: 705373215}
   - component: {fileID: 705373217}
   - component: {fileID: 705373216}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: StaminaJaugeB
   m_TagString: Stamina
   m_Icon: {fileID: 0}
@@ -3276,7 +3276,7 @@ GameObject:
   - component: {fileID: 707424478}
   - component: {fileID: 707424480}
   - component: {fileID: 707424479}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3349,7 +3349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 717331236}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3408,9 +3408,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 507018884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51, y: -52}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 46, y: -46}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723422471
@@ -3670,7 +3670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889721189}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4190,7 +4190,7 @@ PrefabInstance:
     - target: {fileID: 3442081718480805380, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 32
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 3442081718480805380, guid: 4cbf71d63a65f4a4291a1e9f1f57d18d,
         type: 3}
@@ -4631,7 +4631,7 @@ GameObject:
   - component: {fileID: 1282238641}
   - component: {fileID: 1282238643}
   - component: {fileID: 1282238642}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,7 +4706,7 @@ GameObject:
   - component: {fileID: 1289565057}
   - component: {fileID: 1289565059}
   - component: {fileID: 1289565058}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4820,7 +4820,7 @@ GameObject:
   - component: {fileID: 1625103832}
   - component: {fileID: 1625103834}
   - component: {fileID: 1625103833}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4918,7 +4918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 247, y: -53}
+  m_AnchoredPosition: {x: -304, y: -53}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669129002
@@ -4941,7 +4941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0                                                       0
+  m_text: ' 0   0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5004,7 +5004,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -887.2278, y: -31.083252, z: -406.73062, w: -30.022552}
+  m_margin: {x: 290.58853, y: -31.083252, z: -299.5541, w: -30.022552}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5238,7 +5238,7 @@ GameObject:
   - component: {fileID: 2014740884}
   - component: {fileID: 2014740886}
   - component: {fileID: 2014740885}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

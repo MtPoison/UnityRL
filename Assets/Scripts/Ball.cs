@@ -6,8 +6,6 @@ public class Ball : MonoBehaviour
 {
     private TrailRenderer trail;
     private AudioSource tirBall;
-    [SerializeField] private float forceMultiplier = 10f;
-    [SerializeField] private float upwardForce = 5f;
     [SerializeField] int scale;
     private Vector3 initialposition;
 
