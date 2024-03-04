@@ -5,19 +5,25 @@ using UnityEngine;
 
 public class ScoreTraining : MonoBehaviour
 {
-
     private TextMeshProUGUI scoreText;
-    private MovingTarget movingTarget;
-    // Start is called before the first frame update
+
     void Start()
     {
         scoreText = GetComponentInChildren<TextMeshProUGUI>();
-        movingTarget = FindAnyObjectByType<MovingTarget>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreText.text = $" {movingTarget.GetScorePlayerA()}   {movingTarget.GetScorePlayerB()}";
+        var foundMovingTargetObjects = FindObjectsByType<MovingTarget>(FindObjectsSortMode.None);
+        int stockGoalPlayerA = 0;
+        int stockGoalPlayerB = 0;
+        // parcours chaque target et ajoute le score du player
+        foreach (var item in foundMovingTargetObjects)
+        {
+            stockGoalPlayerA += item.GetScorePlayerA();
+            stockGoalPlayerB += item.GetScorePlayerB();
+            
+        }
+        scoreText.text = $"  {stockGoalPlayerA}  {stockGoalPlayerB}";
     }
 }
