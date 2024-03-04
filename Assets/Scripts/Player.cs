@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float RotateSpeed;
     [SerializeField] private float intensityJetpack;
 
+    [SerializeField] private string focusInputAxis;
     [SerializeField] private string jumpInputAxis;
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private string verticalInputAxis;
     [SerializeField] private string sprintInputAxis;
     [SerializeField] private string jetpackInputAxis;
     [SerializeField] private string capacityInputAxis;
+    [SerializeField] private string tagBall;
     [SerializeField] private int additionalForce;
 
     private Transform player;
@@ -41,18 +44,14 @@ public class Player : MonoBehaviour
         trail.enabled = false;
 
         player = GetComponent<Player>().transform;
-        if (ball != null)
-        {
-            ball = GameObject.FindWithTag("Ball").transform;
-        }
-        
+        ball = GameObject.FindWithTag(tagBall).transform;
     }
 
     private void Update()
     {
         GetAxisRawGlobal();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown(focusInputAxis))
         {
             focusBall = !focusBall;
         }

@@ -6,6 +6,7 @@ public class MovingTarget : MonoBehaviour
 {
     [SerializeField] private Vector3 startPos;
     [SerializeField] private Vector3 endPos;
+    [SerializeField] private bool isMooving;
     private Vector3 destination;
 
     [SerializeField] private float moveSpeed;
@@ -35,22 +36,25 @@ public class MovingTarget : MonoBehaviour
 
     private void MoveTarget()
     {
-        // Check si le target à atteint sa destination
-        if (Vector3.Distance(transform.localPosition, destination) <= finishDistanceTarget)
+        if (isMooving)
         {
-            if (startMovingEnd) { 
-                destination = startPos;
-            }
-            else { 
-                destination = endPos;
-            }
+            // Check si le target à atteint sa destination
+            if (Vector3.Distance(transform.localPosition, destination) <= finishDistanceTarget)
+            {
+                if (startMovingEnd) { 
+                    destination = startPos;
+                }
+                else { 
+                    destination = endPos;
+                }
                 
-            startMovingEnd = !startMovingEnd;
-        }
+                startMovingEnd = !startMovingEnd;
+            }
 
-        // Déplacement du target
-        Vector3 direction = (destination - transform.localPosition).normalized;
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
+            // Déplacement du target
+            Vector3 direction = (destination - transform.localPosition).normalized;
+            transform.Translate(direction * Time.deltaTime * moveSpeed, Space.World);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
