@@ -84,12 +84,11 @@ public class Ball : MonoBehaviour
             }
             else if (rb.velocity.x >= 5)
             {
-                tirBall.volume = 0.6f;
+                tirBall.volume = 0.4f;
             }
             tirBall.Play();
         }
     }
-
 
     public void ResetBall()
     {

@@ -107,7 +107,6 @@ public class Player : MonoBehaviour
                 collision.rigidbody.AddForce(vec * additionalForce);
             }
         }
-        
     }
 
     private void OnCollisionExit(Collision collision)
