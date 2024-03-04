@@ -44,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -60,8 +60,7 @@ ModelImporter:
       - time: 0
         functionName: NewEvent
         data: 
-        objectReferenceParameter: {fileID: 919132149155446097, guid: 729e8f1b2e1758d439f3e90e7ceff0e1,
-          type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -81,7 +80,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

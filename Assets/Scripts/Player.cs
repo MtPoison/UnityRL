@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     private Transform player;
     private Transform ball;
+    Animator animator;
+    private int IsWalkingHash;
 
     private float rotationSpeed = 5f;
     private bool focusBall = false;
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour
 
         player = GetComponent<Player>().transform;
         ball = GameObject.FindWithTag(tagBall).transform;
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -123,6 +127,8 @@ public class Player : MonoBehaviour
         rb.AddForce(transform.forward * moveSpeed * verticalPlayerGlobal);
 
         transform.Rotate(transform.up, RotateSpeed * horizontalPlayerGlobal);
+
+        IsWalkingHash = Animator.StringToHash("isWalking");
     }
 
     private void PlayerJump()
