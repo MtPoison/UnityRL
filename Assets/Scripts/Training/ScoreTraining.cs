@@ -18,6 +18,6 @@ public class ScoreTraining : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = $"{movingTarget.GetScorePlayerA()}                                                       {movingTarget.GetScorePlayerB()}";
+        scoreText.text = $" {movingTarget.GetScorePlayerA()}   {movingTarget.GetScorePlayerB()}";
     }
 }
