@@ -25,7 +25,7 @@ public class BulletDrone : MonoBehaviour
             if (Vector3.Distance(transform.position, ball.position) <= modeNaviguation.GetFinishDistanceTarget())
             {
                 transform.position = ball.position;
-                modeNaviguationRigidbody.AddForce(prushForce * Time.deltaTime * 1000 * Vector3.right);
+                modeNaviguationRigidbody.AddForce(prushForce * Time.deltaTime * 1000 * Vector3.forward);
                 Debug.Log("arrivé");
                 Destroy(modeNaviguation.destroyPrefab);
                 modeNaviguation.SetActiveTirBullet(false);

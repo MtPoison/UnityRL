@@ -15982,10 +15982,65 @@ PrefabInstance:
       propertyPath: modeNaviguation
       value: 
       objectReference: {fileID: 1251219709}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[2].x
+      value: 61.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[2].z
+      value: -35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[3].x
+      value: 61.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[3].z
+      value: 37.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[4].x
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[4].y
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[4].z
+      value: 37.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[5].x
+      value: -61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[5].y
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162046851465969742, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
+        type: 3}
+      propertyPath: PosDrone.Array.data[5].z
+      value: 37.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8057600655256033670, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.9
+      value: -61
       objectReference: {fileID: 0}
     - target: {fileID: 8057600655256033670, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
         type: 3}
@@ -15995,7 +16050,7 @@ PrefabInstance:
     - target: {fileID: 8057600655256033670, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.19
+      value: 37.33
       objectReference: {fileID: 0}
     - target: {fileID: 8057600655256033670, guid: e7c55dc85eb9cb14dbd5ebe85abfb80b,
         type: 3}

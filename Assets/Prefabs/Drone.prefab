@@ -121,11 +121,18 @@ MonoBehaviour:
   PosDrone:
   - {x: -64.9, y: 23.3, z: -35.3}
   - {x: -21.9, y: 23.3, z: -35.3}
-  - {x: -21.9, y: 23.3, z: 33.5}
-  - {x: -64.9, y: 23.3, z: 37.19}
+  - {x: 61.7, y: 23.3, z: -35.3}
+  - {x: 61.7, y: 23.3, z: 37.33}
+  - {x: -4.2, y: 23.3, z: 37.33}
+  - {x: -61, y: 23.3, z: 37.33}
   enableTargetBall: 0
   exitDistanceTarget: 0
-  moveSpeed: 15
+  moveSpeed: 30
   finishDistanceTarget: 1.5
   ball: {fileID: 0}
   ballRigidbody: {fileID: 0}
+  modeNaviguation: {fileID: 5162046851465969742}
+  instancePrefab: {fileID: 6628322208376454877, guid: c0f72afe11307054a9181d9675a3c21e,
+    type: 3}
+  destroyPrefab: {fileID: 6628322208376454877, guid: c0f72afe11307054a9181d9675a3c21e,
+    type: 3}
