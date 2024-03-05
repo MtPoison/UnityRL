@@ -23,6 +23,8 @@ public class ModeNaviguation : MonoBehaviour
     public GameObject instancePrefab;
     public GameObject destroyPrefab;
 
+    private List<GameObject> drones = new List<GameObject>();
+
     //Getters
     public bool GetActiveTirBullet() { return activeTirBullet; }
     public float GetFinishDistanceTarget() { return finishDistanceTarget; }
@@ -41,6 +43,14 @@ public class ModeNaviguation : MonoBehaviour
     {
         MoveDrone();
         CheckDrone();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for (int i = 0; i < drones.Count; i++)
+            {
+                Debug.Log(i);
+            }
+        }
     }
 
     private void MoveDrone()
@@ -67,6 +77,7 @@ public class ModeNaviguation : MonoBehaviour
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguationRigidbody = ballRigidbody;
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguation = modeNaviguation;
                         destroyPrefab = Instantiate(instancePrefab, transform.position, Quaternion.identity);
+                        drones.Add( destroyPrefab );
                         Debug.Log("active tir");
                         noDouble = true;
                     }
