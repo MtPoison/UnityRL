@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
@@ -22,25 +23,27 @@ public class Win : MonoBehaviour
         
     }
 
-    public void EndGame()
+    public IEnumerator EndGame()
     {
-        if (gameManager.scorePlayerA > gameManager.scorePlayerB)
-        {
-            endText.text = ($"<color=#87CEEB>Player A a gagné avec {gameManager.scorePlayerA} but");
-            
-        }
-        else if (gameManager.scorePlayerA < gameManager.scorePlayerB)
-        {
-            Debug.Log("ok");
-            endText.text = ($"<color=#FF0000>Player B a gagné avec {gameManager.scorePlayerB} but");
-        }
-        else if (gameManager.scorePlayerA == gameManager.scorePlayerB)
-        {
-            endText.text = ("Egalité");
-        }
-        else
-        {
-            endText.text = ("");
-        }
+        
+            if (gameManager.scorePlayerA > gameManager.scorePlayerB)
+            {
+                endText.text = ($"<color=#87CEEB>Player A a gagné avec {gameManager.scorePlayerA} but");
+
+            }
+            else if (gameManager.scorePlayerA < gameManager.scorePlayerB)
+            {
+                endText.text = ($"<color=#FF0000>Player B a gagné avec {gameManager.scorePlayerB} but");
+            }
+            else if (gameManager.scorePlayerA == gameManager.scorePlayerB)
+            {
+                endText.text = ("<color=#000000>Egalité");
+            }
+            else
+            {
+                endText.text = ("");
+            }
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
     }
 }
