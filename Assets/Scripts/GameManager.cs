@@ -18,12 +18,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform ballStart;
     [SerializeField] private Transform playerAStart;
     [SerializeField] private Transform playerBStart;
+    [SerializeField] private Obstacle obstacle1;
+    [SerializeField] private Obstacle obstacle2;
 
     public int scorePlayerA { get; private set; }
     public int scorePlayerB { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        obstacle1.Generate();
+        obstacle2.Generate();
         scorePlayerA = 0;
         scorePlayerB = 0;
     }
@@ -36,10 +40,11 @@ public class GameManager : MonoBehaviour
 
     public void KickOff()
     {
+        FindObjectOfType<Obstacle>();
         ball.transform.position = ballStart.position;
         playerA.transform.position = playerAStart.position;
         playerB.transform.position = playerBStart.position;
-        playerB.transform.rotation = playerAStart.rotation;
+        playerA.transform.rotation = playerAStart.rotation;
         playerB.transform.rotation = playerBStart.rotation;
     }
 

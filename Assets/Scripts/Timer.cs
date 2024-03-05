@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float totalTime;
     private float timeRemaining;
     private TextMeshProUGUI countdownText;
-
+    private bool gameEnded = false;
     void Start()
     {
         countdownText = GetComponentInChildren<TextMeshProUGUI>();
@@ -17,20 +17,24 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (timeRemaining >= 1)
+        if (!gameEnded)
         {
-            timeRemaining -= Time.deltaTime;
-            UpdateCountdownUI();
-        }
-        else
-        {
-            FindObjectOfType<Win>().EndGame();
-            Time.timeScale = 0f;
-            FindObjectOfType<GameManager>().KickOff();
-            Debug.Log("Countdown finished!");
+            if (timeRemaining >= 1)
+            {
+                timeRemaining -= Time.deltaTime;
+                UpdateCountdownUI();
+            }
+            else
+            {
+                Test();
+            }
         }
     }
-
+    void Test()
+    {
+        gameEnded = true;
+        StartCoroutine(FindObjectOfType<Win>().EndGame());
+    }
     void UpdateCountdownUI()
     {
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
