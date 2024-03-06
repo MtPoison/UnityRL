@@ -20,14 +20,6 @@ public class Player : MonoBehaviour
     [SerializeField] private string tagBall;
     [SerializeField] private int additionalForce;
 
-    private Transform player;
-    private Transform ball;
-    Animator animator;
-    private int IsWalkingHash;
-
-    private float rotationSpeed = 5f;
-    private bool focusBall = false;
-
     private float horizontalPlayerGlobal;
     private float verticalPlayerGlobal;
     private float capacityPlayerGlobal;
@@ -44,32 +36,11 @@ public class Player : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
         trail = GetComponentInChildren<LineRenderer>();
         trail.enabled = false;
-
-        player = GetComponent<Player>().transform;
-        ball = GameObject.FindWithTag(tagBall).transform;
-
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         GetAxisRawGlobal();
-
-        if (Input.GetButtonDown(focusInputAxis))
-        {
-            focusBall = !focusBall;
-        }
-
-        if (focusBall)
-        {
-            Vector3 direction = ball.position - transform.position;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, player.rotation, rotationSpeed * Time.deltaTime);
-        }
     }
 
     private void FixedUpdate()
@@ -127,7 +98,6 @@ public class Player : MonoBehaviour
 
         transform.Rotate(transform.up, RotateSpeed * horizontalPlayerGlobal);
 
-        IsWalkingHash = Animator.StringToHash("isWalking");
     }
 
     private void PlayerJump()
