@@ -8,6 +8,7 @@ public class ModeNaviguation : MonoBehaviour
     [SerializeField] private bool enableTargetBall;
     [SerializeField] private bool exitDistanceTarget;
     private bool noDouble = false;
+    private bool noDoubleRandom = false;
     private bool activeTirBullet = false;
     private Vector3 destination;
 
@@ -16,14 +17,13 @@ public class ModeNaviguation : MonoBehaviour
 
     private int targetIndex;
     private int randomAttack;
+    private int randomDropY;
 
     [SerializeField] private Transform ball;
     [SerializeField] private Rigidbody ballRigidbody;
     [SerializeField] private ModeNaviguation modeNaviguation;
     public GameObject instancePrefab;
     public GameObject destroyPrefab;
-
-    private List<GameObject> drones = new List<GameObject>();
 
     //Getters
     public bool GetActiveTirBullet() { return activeTirBullet; }
@@ -42,15 +42,7 @@ public class ModeNaviguation : MonoBehaviour
     private void Update()
     {
         MoveDrone();
-        CheckDrone();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < drones.Count; i++)
-            {
-                Debug.Log(i);
-            }
-        }
+        GetBallWithDrone();
     }
 
     private void MoveDrone()
@@ -61,7 +53,7 @@ public class ModeNaviguation : MonoBehaviour
             randomAttack = Random.Range(0, 3);
             if (targetIndex < PosDrone.Count)
             {
-                if (randomAttack == 1 && !activeTirBullet)
+                if (randomAttack == 1)
                 {
                     Debug.Log("target la ball");
                     destination = ball.position;
@@ -77,7 +69,6 @@ public class ModeNaviguation : MonoBehaviour
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguationRigidbody = ballRigidbody;
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguation = modeNaviguation;
                         destroyPrefab = Instantiate(instancePrefab, transform.position, Quaternion.identity);
-                        drones.Add( destroyPrefab );
                         Debug.Log("active tir");
                         noDouble = true;
                     }
@@ -96,43 +87,64 @@ public class ModeNaviguation : MonoBehaviour
         }
         else
         {
+            // trajectoire normal du drone entre ces points
             if (!enableTargetBall)
             {
                 Vector3 direction = (destination - transform.position).normalized;
                 transform.Translate(direction * Time.deltaTime * moveSpeed, Space.World);
             }
 
+            // trajectoire quand le drone à la balle
             if (exitDistanceTarget)
             {
-                Vector3 direction = (destination - transform.position).normalized;
-                transform.Translate(direction * Time.deltaTime * moveSpeed, Space.World);
-            }
-
-            if (enableTargetBall && Vector3.Distance(transform.position, ball.position) <= finishDistanceTarget)
-            {
-                ball.position = transform.position;
+                if (!noDoubleRandom)
+                {
+                    randomDropY = Random.Range(0, 2);
+                    noDoubleRandom = true;
+                }
+                if (randomDropY == 0)
+                {
+                    Vector3 direction = (destination - transform.position);
+                    direction.y = 0;
+                    transform.Translate(direction.normalized * Time.deltaTime * moveSpeed, Space.World);
+                    ball.position = transform.position;
+                }
+                else
+                {
+                    Vector3 direction = (destination - transform.position).normalized;
+                    transform.Translate(direction * Time.deltaTime * moveSpeed, Space.World);
+                    ball.position = transform.position;
+                }
             }
         }
     }
 
-    private void CheckDrone()
+    private void GetBallWithDrone()
     {
         if (enableTargetBall)
         {
+            // Check si le drone à attrapé la balle
             if (Vector3.Distance(transform.position, ball.position) <= finishDistanceTarget)
             {
                 ballRigidbody.isKinematic = true;
-                Debug.Log("chopé");
                 SetDestination(PosDrone[targetIndex]);
+                // enclenche le nouveau déplacement du drone
                 exitDistanceTarget = true;
+                // si le drone choisit de drop en bas alors ne pas prendre en compte le Y
+                if (randomDropY == 0)
+                {
+                    destination.y = transform.position.y;
+                }
+                // Check si le drone à atteint sa destination pour drop la balle
                 if (Vector3.Distance(transform.position, destination) <= finishDistanceTarget)
                 {
-                    // direction Y < 1
                     Debug.Log("arrivé");
                     ball.position = transform.position;
                     enableTargetBall = false;
                     ballRigidbody.isKinematic = false;
+                    // le drone reprend sa trajectoire habituelle
                     exitDistanceTarget = false;
+                    noDoubleRandom = false;
                 }
             }
             else
