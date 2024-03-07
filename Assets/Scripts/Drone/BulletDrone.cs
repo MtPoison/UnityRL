@@ -18,10 +18,8 @@ public class BulletDrone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(modeNaviguation.GetActiveTirBullet());
         if (modeNaviguation.GetActiveTirBullet())
         {
-            Debug.Log("en mode tir ouuuuuuuuuuuuuuuu");
             if (Vector3.Distance(transform.position, ball.position) <= modeNaviguation.GetFinishDistanceTarget())
             {
                 transform.position = ball.position;

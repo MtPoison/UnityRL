@@ -125,5 +125,5 @@ MonoBehaviour:
     type: 3}
   modeNaviguationRigidbody: {fileID: -7548008609859312281, guid: 7310af078acac284482f01efa5f08823,
     type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 50
   prushForce: 5
