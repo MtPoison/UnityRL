@@ -50,12 +50,11 @@ public class ModeNaviguation : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) <= finishDistanceTarget)
         {
             targetIndex++;
-            randomAttack = Random.Range(0, 3);
+            randomAttack = Random.Range(0, 9);
             if (targetIndex < PosDrone.Count)
             {
                 if (randomAttack == 1)
                 {
-                    Debug.Log("target la ball");
                     destination = ball.position;
                     enableTargetBall = true;
                 }
@@ -69,7 +68,6 @@ public class ModeNaviguation : MonoBehaviour
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguationRigidbody = ballRigidbody;
                         instancePrefab.GetComponent<BulletDrone>().modeNaviguation = modeNaviguation;
                         destroyPrefab = Instantiate(instancePrefab, transform.position, Quaternion.identity);
-                        Debug.Log("active tir");
                         noDouble = true;
                     }
                 }
@@ -138,7 +136,6 @@ public class ModeNaviguation : MonoBehaviour
                 // Check si le drone à atteint sa destination pour drop la balle
                 if (Vector3.Distance(transform.position, destination) <= finishDistanceTarget)
                 {
-                    Debug.Log("arrivé");
                     ball.position = transform.position;
                     enableTargetBall = false;
                     ballRigidbody.isKinematic = false;

@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     public int scorePlayerA { get; private set; }
     public int scorePlayerB { get; private set; }
-    // Start is called before the first frame update
     void Start()
     {
         obstacle1.Generate();
@@ -31,13 +30,6 @@ public class GameManager : MonoBehaviour
         scorePlayerA = 0;
         scorePlayerB = 0;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void KickOff()
     {
         FindObjectOfType<Obstacle>();

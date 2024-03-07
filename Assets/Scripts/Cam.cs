@@ -12,14 +12,11 @@ public class Cam : MonoBehaviour
     private Transform player;
     [SerializeField] float rotationSpeed = 5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GetComponentInParent<Player>().transform;
         ball = GameObject.FindWithTag(tagBall).transform;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown(focusInputAxis))

@@ -9,13 +9,7 @@ public class BulletDrone : MonoBehaviour
     [SerializeField] public Rigidbody modeNaviguationRigidbody;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float prushForce;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (modeNaviguation.GetActiveTirBullet())
@@ -24,7 +18,6 @@ public class BulletDrone : MonoBehaviour
             {
                 transform.position = ball.position;
                 modeNaviguationRigidbody.AddForce(prushForce * Time.deltaTime * 1000 * Vector3.forward);
-                Debug.Log("arrivé");
                 Destroy(modeNaviguation.destroyPrefab);
                 modeNaviguation.SetActiveTirBullet(false);
             }

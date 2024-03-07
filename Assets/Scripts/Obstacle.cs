@@ -8,14 +8,13 @@ public class Obstacle : MonoBehaviour
     [SerializeField] Transform obstacle;
     List<Transform> obstacleList = new List<Transform>();
     Vector3 position;
-    [SerializeField] int obstacleNB;
-    [SerializeField] int minObstacleX;
-    [SerializeField] int maxObstacleX;
-    [SerializeField] int minObstacleZ;
-    [SerializeField] int maxObstacleZ;
-    [SerializeField] int distance;
-    [SerializeField] int positionY;
-    int test = 0;
+    [SerializeField] private int obstacleNB;
+    [SerializeField] private int minObstacleX;
+    [SerializeField] private int maxObstacleX;
+    [SerializeField] private int minObstacleZ;
+    [SerializeField] private int maxObstacleZ;
+    [SerializeField] private int distance;
+    [SerializeField] private int positionY;
     public void Generate()
     {
         position = new Vector3(10, positionY, 10);
