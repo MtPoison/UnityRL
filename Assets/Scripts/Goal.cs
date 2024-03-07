@@ -24,7 +24,6 @@ public class Goal : MonoBehaviour
 
     private IEnumerator checkGoal()
     {
-        Debug.Log("vu");
         part.Play();
         for (float i = 1; i >= 0.2; i -= 0.1f)
         {
@@ -33,7 +32,6 @@ public class Goal : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         FindObjectOfType<GameManager>().KickOff();
-        Debug.Log("okk");
         ball.GetComponent<Rigidbody>().isKinematic = true;
         FindObjectOfType<GameManager>().Goalaso(player);
         ball.GetComponent<Rigidbody>().isKinematic = false;
